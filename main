@@ -1,0 +1,92 @@
+import random
+def process_Admin_options_flow():
+    Admin_options = """
+    Welcome to the Admin interface! Please press the below options:
+        
+        0. Quit
+        1. Add new food items
+        2. Edit food items
+        3. View the list of all food items
+        4. Remove a food items
+    
+             Your Option:
+    """
+
+    Admin_options = int(input(Admin_options))
+
+    while Admin_options != 0:
+        if Admin_options == 1:
+            return Add_new_food_items()
+                    
+        elif Admin_options == 2:
+            return edit_items()
+                    
+        elif Admin_options == 3:
+            return view_menu()
+            
+        elif Admin_options == 4:
+            return Remove_food_items()
+  
+def process_customer_options_flow():
+    customer_options = """ 
+    Welcome to the customer interface! Please press the below options:
+        
+    0. Quit                 2. Customer signup
+    1. View menu            3. Customer login
+    
+    Your Option:
+    """        
+        
+    customer_options = int(input(customer_options))
+    
+    if customer_options == 0:
+        return process_customer_options_flow()
+
+    elif customer_options == 1:
+         return view_menu
+
+    elif customer_options == 2:
+        return customer_signup()
+
+    elif customer_options == 3:
+        return Customer_login()
+    
+    def process():
+        customer_options = """ 
+        Welcome to the customer interface! Please press the below options:
+
+        0. Quit                   2. Order History
+        1. Place New Order        3. Update Profile
+
+        Your Option:
+        """        
+
+        customer_options = int(input(customer_options))
+
+        if customer_options == 0:
+            return process()
+
+        elif customer_options == 1:
+            return show_food_items()       
+
+        elif customer_options == 2:
+            return order_history()
+
+        elif customer_options == 3:
+            return Update_Profile()
+            
+            
+def main_user_interface():
+    welcome_message = """ 
+    Welcome to the Food Ordering System! Please press the below options:
+    1. Admin            2. Customer
+    Your Option:
+    """
+
+    option = int(input(welcome_message))
+
+    if option == 1:
+        process_Admin_options_flow()
+    
+    elif option == 2:
+        process_customer_options_flow()
