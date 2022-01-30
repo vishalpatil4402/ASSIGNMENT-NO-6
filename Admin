@@ -1,0 +1,76 @@
+import random
+Food_details=[
+{'Name': 'Tandoori Chicken', 'Food_id': 120, 'Price': 240, 'Quantity': '4pieces', 'Discount': 10, 'Stock_amount': 123}, 
+ {'Name': 'Vegan Burger', 'Food_id': 370, 'Price': 320, 'Quantity': '1piece', 'Discount': 15, 'stock_amount': 220}, 
+ {'Name': 'Truffle Cake', 'Food_id': 90, 'Price': 900, 'Quantity': '500gm', 'Discount': 20, 'stock_amount': 230}]
+
+def Admin_login():
+    login_info_of_Admin = {'vishal':'@#123'}
+    username = input('Username')
+    password = input('Password')
+    pw = login_info_of_Admin.get(username)
+    if pw != password:
+        print('Wrong username or password')
+        return False
+    else:
+        return True            
+    
+def Add_new_food_items(): 
+    Name = input("Food Name")
+    Food_id = print(random.randint(1,2000))
+    Quantity= input("Quantity")
+    Price = float(input("Price in Float"))
+    Discount = input("Discount")
+    Stock_amount = input("Stock Amount")
+    Food_details.append(
+        {"Name":Name,
+        "Food_id": Food_id,
+        "Quantity":Quantity,
+        "Price":Price,
+        "Discount": Discount,
+        "Stock_Amount": Stock_amount
+        })
+    print(f"The {Name} is successfully added")
+    return Food_details
+    
+def edit_items():
+    print('please enter the index of list that you want to edit')
+    index = int(input())
+    d=[]
+    if Food_details[index]['Food_id'] == 120:
+        Food_details.remove(Food_details[index])
+        Food_details.append(d)
+    elif Food_details[index]['Food_id'] == 370:
+        Food_details.remove(Food_details[index])
+        Food_details.append(d)
+    elif Food_details[index]['Food_id'] == 90:
+        Food_details.remove(Food_details[index])
+        Food_details.append(d)
+
+
+    Name = input("Food Name")
+    Food_id = print(random.randint(1,2000))
+    Price = float(input("Price in Float"))
+    Quantity= input("Quantity")
+    Discount = input("Discount")
+    Stock_amount = input("Stock Amount")
+
+    d.append(  
+       {"Name":Name,
+        "Food_id": Food_id,
+        "Price":Price,
+        "Quantity":Quantity,
+        "Discount": Discount,
+        "Stock_Amount": Stock_amount
+            })
+    
+def Remove_food_items(): 
+    print('please enter the index of list that you want to remove')
+    index = int(input())
+    if Food_details[index]['Food_id'] == 120:
+        Food_details.remove(Food_details[index])
+    elif Food_details[index]['Food_id'] == 370:
+        Food_details.remove(Food_details[index]) 
+    elif Food_details[index]['Food_id'] == 90:
+        Food_details.remove(Food_details[index])
+
