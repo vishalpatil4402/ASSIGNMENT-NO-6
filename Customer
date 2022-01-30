@@ -1,0 +1,93 @@
+Customer_details = [  
+{'Full_Name': 'shridhar patil', 'Phone_Number': 7304826644, 'Email': 'shridharpatil9673@gmail.com', 
+  'Address': 'a/p sangli', 'Password': 'shridhar@123'}, 
+ {'Full_Name': 'vijay patil', 'Phone_Number': 7305566644, 'Email': 'vijaypatil4402@gmail.com', 
+  'Address': 'a/p sangli', 'Password': 'vijay@4402'}]
+
+def view_menu():
+    print(Food_details)
+
+def customer_signup():
+    Full_Name = input('enter your name: ')
+    Phone_Number = int(input('enter your phone no: '))
+    Email = input('enter your email: ')
+    Address = input('enter your address: ')
+    Password = input('enter your password: ')
+    print("***registration is successful *****")
+    
+def process():
+    customer_options = """ 
+    Welcome to the customer interface! Please press the below options:
+
+    0. Quit                   2. Order History
+    1. Place New Order        3. Update Profile
+
+    Your Option:
+    """        
+
+    customer_options = int(input(customer_options))
+
+    if customer_options == 0:
+        return process()
+
+    elif customer_options == 1:
+        return show_food_items()
+        return Place_New_Order()
+
+def Customer_login(): 
+    username = input('enter your username: ')
+    password = input('enter your password: ')
+    for j in range(len(Customer_details)):
+        if Customer_details[j]['Full_Name']!=username and Customer_details[j]['Password']!=password:
+            print('wrong username or password ')
+        else:
+            return process()
+            
+            
+def show_food_items():
+    for food in Food_details:
+        p =[(food['Name']),(food['Quantity']),(food['Price'])]
+        print(p)
+    return Place_New_Order()
+
+def Place_New_Order():
+    current_order = []
+    print('how many items u want to order')
+    n = int(input())
+    print('please enter the Food_name that you want to order??')
+    usr = [input() for i in range(n)]
+    for i in usr:
+        for j in range(len(Food_details)):
+            if Food_details[j]['Name']==i:
+                current_order.append(Food_details[j])          
+    print(current_order)
+    if len(current_order)==0:
+        print('enter valid Food_name')
+        
+def order_history():
+    order_history = []
+    y = order_history.append(current_order)
+    return y
+
+          
+def Update_Profile():
+    print('please enter the Full_Name that you want to update ??')
+    user = input()
+    new_list=[]
+    for j in range(len(Customer_details)):
+        if Customer_details[j]['Full_Name']==user:
+            Full_Name = input("Full_Name")
+            Phone_Number = int(input("Phone_Number"))
+            Email= input("Email")
+            Address = input("Address")
+            Password = input("Password")
+            new_list.append(  
+           {"Full_Name":Full_Name,
+            "Phone_Number": Phone_Number,
+            "Email":Email,
+            "Address":Address,
+            "Password": Password,
+            })
+
+            Customer_details.remove(Customer_details[j])
+            Customer_details.append(new_list)
